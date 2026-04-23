@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-900 bg-white antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif font-bold tracking-tight;
+  }
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 240px;
+  gap: 1.5rem;
+}
+
+.bento-item {
+  @apply rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-slate-200 p-8 flex flex-col justify-between;
+}
+
+.card-border {
+  @apply border border-slate-100 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] rounded-xl;
+}
+
+.nav-link {
+  @apply text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 transition-colors hover:text-red-500;
+}
+
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider;
+}
+
+.badge-red { @apply bg-red-50 text-red-600; }
+.badge-green { @apply bg-green-50 text-green-600; }
+.badge-slate { @apply bg-slate-50 text-slate-600; }
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+}
